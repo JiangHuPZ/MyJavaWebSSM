@@ -11,10 +11,7 @@ import java.util.Properties;
 public class ConnUtil {
 
     private static ThreadLocal<Connection> threadLocal = new ThreadLocal<>();
-    //private static ThreadLocal<Object> threadLocal2 = new ThreadLocal<>();
-    //private static ThreadLocal<Object> threadLocal3 = new ThreadLocal<>();
-
-
+  
     private static Connection createConn(){
         try {
             InputStream is = ConnUtil.class.getClassLoader().getResourceAsStream("jdbc.properties");
@@ -46,7 +43,6 @@ public class ConnUtil {
         }
         if(!conn.isClosed()){
             conn.close();
-            //threadLocal.set(null);
             threadLocal.remove();
         }
     }
